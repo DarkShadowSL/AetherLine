@@ -19,6 +19,7 @@ body {
   background: radial-gradient(circle at top, #171d3d 0%, var(--bg) 40%);
   color: var(--text);
   line-height: 1.7;
+  animation: fadeIn 0.8s ease;
 }
 
 a {
@@ -36,6 +37,7 @@ a {
   align-items: center;
   gap: 1rem;
   padding: 1.4rem 0;
+  animation: slideDown 0.7s ease;
 }
 
 .logo {
@@ -55,11 +57,31 @@ a {
   color: var(--muted);
   text-decoration: none;
   font-weight: 500;
+  position: relative;
+  transition: color 0.25s ease;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.25rem;
+  width: 100%;
+  height: 2px;
+  transform: scaleX(0);
+  transform-origin: left;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  transition: transform 0.25s ease;
 }
 
 .nav-links a.active,
 .nav-links a:hover {
   color: var(--primary);
+}
+
+.nav-links a.active::after,
+.nav-links a:hover::after {
+  transform: scaleX(1);
 }
 
 .hero {
@@ -71,6 +93,7 @@ a {
   grid-template-columns: 1.2fr 0.8fr;
   gap: 2rem;
   align-items: center;
+  animation: riseUp 0.8s ease;
 }
 
 .eyebrow {
@@ -126,6 +149,12 @@ h2 {
   border-radius: 999px;
   text-decoration: none;
   font-weight: 700;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(105, 240, 255, 0.2);
 }
 
 .btn-primary {
@@ -151,6 +180,7 @@ h2 {
   background: rgba(255, 255, 255, 0.03);
   border: 1px dashed rgba(255, 255, 255, 0.35);
   padding: 1rem;
+  animation: floatLogo 4s ease-in-out infinite;
 }
 
 .brand-caption {
@@ -161,6 +191,7 @@ h2 {
 
 .section {
   padding: 4rem 0;
+  animation: fadeIn 0.9s ease;
 }
 
 .alt {
@@ -179,6 +210,13 @@ h2 {
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 16px;
   padding: 1.2rem;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(105, 240, 255, 0.45);
+  box-shadow: 0 14px 26px rgba(0, 0, 0, 0.25);
 }
 
 .card span {
@@ -194,6 +232,16 @@ h2 {
   gap: 1rem;
 }
 
+.pipeline-grid {
+  grid-template-columns: repeat(3, minmax(220px, 1fr));
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.pipeline-grid .card {
+  text-align: center;
+}
+
 .page-hero {
   padding: 3rem 0 2rem;
 }
@@ -203,6 +251,48 @@ h2 {
   padding: 3rem 0;
   text-align: center;
   background: #050710;
+  animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes riseUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes floatLogo {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
 }
 
 .footer p {
@@ -221,6 +311,10 @@ h2 {
     grid-template-columns: 1fr;
   }
 
+  .pipeline-grid {
+    grid-template-columns: repeat(2, minmax(220px, 1fr));
+  }
+
   .hero-brand {
     justify-self: start;
   }
@@ -230,5 +324,9 @@ h2 {
   .nav {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .pipeline-grid {
+    grid-template-columns: 1fr;
   }
 }
