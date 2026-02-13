@@ -21,9 +21,13 @@ body {
   line-height: 1.7;
 }
 
-.hero {
-  min-height: 100vh;
-  padding: 2rem 6vw 4rem;
+a {
+  color: inherit;
+}
+
+.container {
+  width: min(1200px, 92vw);
+  margin: 0 auto;
 }
 
 .nav {
@@ -31,6 +35,7 @@ body {
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
+  padding: 1.4rem 0;
 }
 
 .logo {
@@ -42,7 +47,7 @@ body {
 
 .nav-links {
   display: flex;
-  gap: 1.2rem;
+  gap: 1rem;
   flex-wrap: wrap;
 }
 
@@ -52,20 +57,20 @@ body {
   font-weight: 500;
 }
 
+.nav-links a.active,
 .nav-links a:hover {
   color: var(--primary);
 }
 
+.hero {
+  padding: 2rem 0 4.5rem;
+}
+
 .hero-grid {
-  margin-top: 5rem;
   display: grid;
   grid-template-columns: 1.2fr 0.8fr;
   gap: 2rem;
   align-items: center;
-}
-
-.hero-content {
-  max-width: 760px;
 }
 
 .eyebrow {
@@ -86,26 +91,18 @@ h3 {
 
 h1 {
   font-family: "Orbitron", sans-serif;
-  font-size: clamp(2rem, 5vw, 3.6rem);
+  font-size: clamp(2rem, 5vw, 3.4rem);
 }
 
 h2 {
-  font-size: clamp(1.6rem, 4vw, 2.4rem);
-}
-
-.hero-actions,
-.footer-actions {
-  margin-top: 2rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
+  font-size: clamp(1.5rem, 4vw, 2.2rem);
 }
 
 .hero-highlights {
   list-style: none;
-  margin-top: 1.5rem;
+  margin-top: 1.3rem;
   display: grid;
-  gap: 0.5rem;
+  gap: 0.4rem;
   color: var(--muted);
 }
 
@@ -113,30 +110,12 @@ h2 {
   color: var(--primary);
 }
 
-.hero-brand {
-  justify-self: end;
-  text-align: center;
-}
-
-.logo-orb {
-  width: min(360px, 70vw);
-  aspect-ratio: 1;
-  border-radius: 50%;
-  padding: 1.2rem;
-  background: radial-gradient(circle at 20% 20%, rgba(105, 240, 255, 0.24), rgba(173, 107, 255, 0.08));
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 0 45px rgba(105, 240, 255, 0.25);
-}
-
-.logo-orb svg {
-  width: 100%;
-  height: 100%;
-}
-
-.brand-caption {
-  margin-top: 0.7rem;
-  color: var(--muted);
-  font-size: 0.92rem;
+.hero-actions,
+.cta-actions {
+  margin-top: 1.6rem;
+  display: flex;
+  gap: 0.9rem;
+  flex-wrap: wrap;
 }
 
 .btn {
@@ -159,28 +138,43 @@ h2 {
   color: var(--text);
 }
 
+.hero-brand {
+  justify-self: end;
+  text-align: center;
+}
+
+.logo-image {
+  width: min(360px, 80vw);
+  aspect-ratio: 1;
+  object-fit: contain;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px dashed rgba(255, 255, 255, 0.35);
+  padding: 1rem;
+}
+
+.brand-caption {
+  color: var(--muted);
+  font-size: 0.92rem;
+  margin-top: 0.6rem;
+}
+
 .section {
-  padding: 5rem 6vw;
+  padding: 4rem 0;
 }
 
 .alt {
   background: var(--bg-soft);
 }
 
-.section-title-wrap {
-  margin-bottom: 2rem;
-}
-
 .cards,
-.service-grid {
+.grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1.2rem;
+  gap: 1.1rem;
 }
 
-.card,
-.service-grid article,
-.timeline li {
+.card {
   background: var(--panel);
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 16px;
@@ -188,11 +182,9 @@ h2 {
 }
 
 .card span {
-  display: inline-block;
-  margin-top: 0.8rem;
   color: var(--primary);
   font-weight: 700;
-  font-size: 0.9rem;
+  font-size: 0.92rem;
 }
 
 .timeline {
@@ -202,56 +194,30 @@ h2 {
   gap: 1rem;
 }
 
-.about-wrap {
-  display: grid;
-  gap: 2rem;
-  grid-template-columns: 2fr 1fr;
-  align-items: center;
-}
-
-.stats {
-  list-style: none;
-  display: grid;
-  gap: 1rem;
-}
-
-.stats li {
-  background: rgba(105, 240, 255, 0.08);
-  border: 1px solid rgba(105, 240, 255, 0.2);
-  border-radius: 12px;
-  padding: 1rem;
-  display: grid;
-  gap: 0.2rem;
-}
-
-.stats strong {
-  font-size: 1.5rem;
+.page-hero {
+  padding: 3rem 0 2rem;
 }
 
 .footer {
-  padding: 4rem 6vw;
+  margin-top: 3rem;
+  padding: 3rem 0;
   text-align: center;
   background: #050710;
 }
 
 .footer p {
   color: var(--muted);
-  margin: 0.5rem auto 1rem;
-  max-width: 700px;
-}
-
-.footer-actions {
-  justify-content: center;
+  margin: 0.5rem auto;
+  max-width: 760px;
 }
 
 .copyright {
-  margin-top: 2rem;
+  margin-top: 1.5rem;
   font-size: 0.9rem;
 }
 
 @media (max-width: 980px) {
-  .hero-grid,
-  .about-wrap {
+  .hero-grid {
     grid-template-columns: 1fr;
   }
 
@@ -260,17 +226,9 @@ h2 {
   }
 }
 
-@media (max-width: 640px) {
-  .hero {
-    padding-top: 1.2rem;
-  }
-
+@media (max-width: 720px) {
   .nav {
     flex-direction: column;
     align-items: flex-start;
-  }
-
-  .hero-grid {
-    margin-top: 2.8rem;
   }
 }
